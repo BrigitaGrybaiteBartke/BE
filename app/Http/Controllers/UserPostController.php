@@ -73,5 +73,4 @@ class UserPostController extends Controller
             return $this->error('', 'You are not authorized to make this request', 403);
         }
     }
-
 }
