@@ -16,7 +16,9 @@ class PostController extends Controller
     public function index()
     {
         return  PostResource::collection(
-            Post::with('comments')->latest()->get()
+            Post::with('comments')
+                ->latest()
+                ->get()
         );
     }
 
@@ -26,9 +28,10 @@ class PostController extends Controller
         return new PostResource($post);
     }
 
-    // search post by title
     public function search($title)
     {
-        return Post::where('title', 'like', '%' . $title . '%')->with('comments')->get();
+        return Post::where('title', 'like', '%' . $title . '%')
+            ->with('comments')
+            ->get();
     }
 }
