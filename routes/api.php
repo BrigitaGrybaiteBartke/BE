@@ -2,13 +2,11 @@
 
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CustomerPostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserPostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -21,7 +19,7 @@ Route::resource('/posts', PostController::class);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/user/posts', UserPostController::class);
-    Route::post('/user/posts/imageUpload', [UploadController::class, 'handleUpload']);
+    Route::post('/posts/{id}/comments/create', [CommentController::class, 'store']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
