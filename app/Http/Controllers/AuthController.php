@@ -15,7 +15,6 @@ class AuthController extends Controller
 {
     use HttpResponses;
 
-
     public function register(StoreUserRequest $request)
     {
         $request->validated($request->all());
@@ -31,7 +30,6 @@ class AuthController extends Controller
             'token' => $user->createToken('API token of ' . $user->name)->plainTextToken
         ]);
     }
-
 
     public function login(LoginUserRequest $request)
     {
