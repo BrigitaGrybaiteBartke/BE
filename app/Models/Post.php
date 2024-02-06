@@ -14,12 +14,10 @@ class Post extends Model
     protected $fillable = ['user_id', 'title', 'excerpt', 'body', 'min_to_read', 'image_path'];
     protected $hidden = ['created_at', 'updated_at'];
 
-
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
-
 
     public function user(): BelongsTo
     {
