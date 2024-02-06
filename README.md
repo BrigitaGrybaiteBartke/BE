@@ -20,28 +20,25 @@ To run the project Frontend and Backend parts of the projects must be started.
 * Page content preview does not require user login
 
 ## Project launch steps
-* Clone repository: https://github.com/BrigitaGrybaiteBartke/BE.git
+* Clone repository:
+```
+git clone https://github.com/BrigitaGrybaiteBartke/BE.git
+```
 * Run XAMPP and Mysql database
 * Open XAMPP htdocs folder - clone application code to this folder
 * Install Composer locally in the current directory
 * Create schema named **laravel** in MySQL Workbench
 * Once opened cloned app folder with source-code editor run this command in terminal: 
-
 ```
 php composer.phar install
 ```
-
 * Change .envexample name to .env
 * Run migrations and seeders:
-
 ```
 php artisan migrate
-
 php artisan db:seed
 ```
-
-* To start project
-
+* To start the project
 ```
 php artisan serve
 ```
